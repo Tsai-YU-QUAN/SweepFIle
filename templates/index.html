@@ -1,0 +1,76 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}掃檔管理系統{% endblock %}
+{% block navbar %}
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <!-- 透過url_for設定HOME連結綁定index -->
+      <a style="font-size:26px; font-weight:bold; color:black;" class="navbar-brand" href="{{ url_for('index')}}">掃檔管理系統</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div style="font-size:20px;  font-weight:bold; color:black;" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="">專案清單管理</a></li>
+        <li><a href="">帳號管理</a></li>
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+{% endblock navbar %}
+{% block content %}
+<div style="font-size:22px">
+
+    <style type="text/css">
+    </style>
+<script type="text/javascript">
+function myFunction() {
+    document.getElementById("mySubmit").style.visibility = "hidden";
+    document.getElementById("p1").innerHTML = "Loading...";
+}
+</script>
+
+<form class="form-horizontal" method='post' action='/'>
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="lbID">專案ID:</label>
+	<div class="col-sm-6">
+    <input class="form-control" name="myID">
+	</div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="lbpath">專案路徑:</label>
+	<div class="col-sm-6">
+    <input class="form-control" name="mypath" disabled="disabled">
+	</div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-3" for="lbfilename">專案名稱:</label>
+  <div class="col-sm-6">
+    <input class="form-control" name="myfilename" disabled="disabled">
+	</div>
+  </div>
+  
+  <div class="form-group">        
+      <div class="col-sm-offset-3 col-sm-6">
+	  <button type='submit' class="btn btn-primary btn-lg" id="mySubmit" onclick="myFunction()">運算</button>
+	  <p id="p1"></p>      
+	  </div>
+    </div>
+  
+  
+
+</form>
+
+</div><!-- /#font-size -->
+{% endblock %}
+
+
